@@ -22,7 +22,7 @@ public class CurrencyController {
     final CurrencyService currencyService;
     final CurrencyExitsValidator currencyValidator;
 
-    public CurrencyController(CurrencyService currencyService, CurrencyRepository currencyRepository, CurrencyExitsValidator currencyValidator) {
+    public CurrencyController(CurrencyService currencyService, CurrencyExitsValidator currencyValidator) {
         this.currencyService = currencyService;
         this.currencyValidator = currencyValidator;
     }
@@ -63,7 +63,7 @@ public class CurrencyController {
             currencyDTO.setCode(currencyModelOptional.get().getCode());
         }
         currencyDTO.setId(id);
-        currencyDTO.setCreatedat(currencyModelOptional.get().getCreatedAt());
+        currencyDTO.setCreatedat(currencyModelOptional.get().getCreated_at());
 
         CurrencyModel currencyModel = CurrencyMapper.INSTANCE.mapDtoToModel(currencyDTO);
         return ResponseEntity.status(HttpStatus.OK).body(currencyService.save(currencyModel));

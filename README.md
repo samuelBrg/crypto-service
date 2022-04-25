@@ -12,7 +12,7 @@ Criar tabela de crypto ativos com o nome currency com as estrutura:
 - Id - UUID - chave primária
 - Name - texto - nome do cypto ativo (ex: Bitcoin)
 - Code - text - código do crypto ativo (ex: BTC)
-- createdAt - datetime - data da criação do registro
+- created_at - datetime - data da criação do registro
 
 
 ### Criar entidades correspondentes a estrutura do banco de dados

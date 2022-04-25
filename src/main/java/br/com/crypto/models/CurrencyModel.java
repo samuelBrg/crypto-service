@@ -5,6 +5,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Entity
@@ -18,7 +19,7 @@ public class CurrencyModel implements Serializable {
     private String name;
     private String code;
     @CreationTimestamp
-    private LocalDateTime createdAt;
+    private OffsetDateTime created_at;
 
     public UUID getId() {
         return id;
@@ -44,11 +45,11 @@ public class CurrencyModel implements Serializable {
         this.code = code;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public OffsetDateTime getCreated_at() {
+        return created_at;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated_at(OffsetDateTime created_at) {
+        this.created_at = created_at;
     }
 }
