@@ -11,7 +11,9 @@ import java.util.List;
 public interface CurrencyMapper {
     CurrencyMapper INSTANCE = Mappers.getMapper(CurrencyMapper.class);
 
-    List<CurrencyDTO> mapModelToDtoList(List<CurrencyModel>currencyModels);
+    List<CurrencyDTO> mapModelToDtoList(List<CurrencyModel> currencyModels);
+
     CurrencyDTO mapModelToDto(CurrencyModel currencyModel);
+
     CurrencyModel mapDtoToModel(CurrencyDTO currencyDTO);
 }

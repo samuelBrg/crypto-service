@@ -21,7 +21,7 @@ public class CurrencyExitsValidator {
     }
 
     public void validatorId(UUID id) throws Exception {
-        if(currencyRepository.existsById(id)){
+        if (currencyRepository.existsById(id)) {
             throw new Exception("Currency not found!");
         }
     }
