@@ -2,8 +2,6 @@ package br.com.crypto.controllers;
 
 import br.com.crypto.dtos.CurrencyDTO;
 import br.com.crypto.mapper.CurrencyMapper;
-import br.com.crypto.models.CurrencyModel;
-import br.com.crypto.repositories.CurrencyRepository;
 import br.com.crypto.services.CurrencyExitsValidator;
 import br.com.crypto.services.CurrencyService;
 import org.springframework.http.HttpStatus;
@@ -52,7 +50,7 @@ public class CurrencyController {
     public ResponseEntity<Object> putCurrency(@PathVariable(value = "id") UUID id,
                                               @RequestBody CurrencyDTO currencyDTO) throws Exception {
         currencyValidator.validatorId(id);
-        currencyService.put(currencyDTO);
+        currencyService.put(currencyDTO, id);
         return ResponseEntity.status(HttpStatus.OK).body("Atualizado com sucesso!");
     }
 }

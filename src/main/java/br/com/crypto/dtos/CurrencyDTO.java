@@ -1,7 +1,7 @@
 package br.com.crypto.dtos;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 public class CurrencyDTO {
@@ -10,8 +10,7 @@ public class CurrencyDTO {
     @NotBlank
     private String code;
     private UUID id;
-    private LocalDateTime createdat;
-
+    private OffsetDateTime created_at;
 
     public String getName() {
         return name;
@@ -37,11 +36,7 @@ public class CurrencyDTO {
         this.id = id;
     }
 
-    public LocalDateTime getCreatedat() {
-        return createdat;
-    }
+    public OffsetDateTime getCreated_at() {return created_at;}
 
-    public void setCreatedat(LocalDateTime createdat) {
-        this.createdat = createdat;
-    }
+    public void setCreated_at(OffsetDateTime created_at){this.created_at = created_at;}
 }
