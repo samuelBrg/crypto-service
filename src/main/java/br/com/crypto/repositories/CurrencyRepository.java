@@ -12,8 +12,6 @@ import java.util.UUID;
 public interface CurrencyRepository extends JpaRepository<CurrencyModel, UUID> {
     boolean existsByNameAndCode(String name, String code);
 
-    CurrencyModel findByNameOrCode(Optional<String> name, Optional<String> code);
-
     List<CurrencyModel> existsByNameOrCode(Optional<String> name, Optional<String> code);
 
 }
