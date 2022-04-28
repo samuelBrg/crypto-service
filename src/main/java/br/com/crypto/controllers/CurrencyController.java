@@ -1,6 +1,7 @@
 package br.com.crypto.controllers;
 
 import br.com.crypto.dtos.CurrencyDTO;
+import br.com.crypto.exceptions.RequestException;
 import br.com.crypto.mapper.CurrencyMapper;
 import br.com.crypto.services.CurrencyExitsValidator;
 import br.com.crypto.services.CurrencyService;
@@ -40,7 +41,7 @@ public class CurrencyController {
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteCurrency(@PathVariable(value = "id") UUID id) throws Exception {
+    public ResponseEntity<Object> deleteCurrency(@PathVariable(value = "id") UUID id) throws RequestException {
         currencyValidator.validatorId(id);
         currencyService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Deletado com sucesso!");
@@ -48,7 +49,7 @@ public class CurrencyController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> putCurrency(@PathVariable(value = "id") UUID id,
-                                              @RequestBody CurrencyDTO currencyDTO) throws Exception {
+                                              @RequestBody CurrencyDTO currencyDTO) throws RequestException {
         currencyValidator.validatorId(id);
         currencyService.put(currencyDTO, id);
         return ResponseEntity.status(HttpStatus.OK).body("Atualizado com sucesso!");

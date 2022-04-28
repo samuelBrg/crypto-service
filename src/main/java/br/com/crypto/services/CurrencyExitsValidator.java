@@ -1,5 +1,7 @@
 package br.com.crypto.services;
 
+import br.com.crypto.exceptions.CustomException;
+import br.com.crypto.exceptions.RequestException;
 import br.com.crypto.repositories.CurrencyRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,15 +16,15 @@ public class CurrencyExitsValidator {
         this.currencyRepository = currencyRepository;
     }
 
-    public void validatorNameAndCode(String name, String code) throws Exception {
+    public void validatorNameAndCode(String name, String code) throws RequestException {
         if (currencyRepository.existsByNameAndCode(name, code)) {
-            throw new Exception("Currency Already Exists!");
+            throw new RequestException("Currency Already Exists!");
         }
     }
 
-    public void validatorId(UUID id) throws Exception {
+    public void validatorId(UUID id) throws RequestException {
         if (!currencyRepository.existsById(id)) {
-            throw new Exception("Currency not found!");
+            throw new RequestException("Currency not found!");
         }
     }
 }
